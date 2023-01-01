@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main-style.css') }}">
+        {% block import %}{% endblock %}
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <header>
+                <div class="header">
+                    <div class="title">UnderGround</div>
+                    <button>Поиск</button>
+                    <input placeholder="Введите ваш запрос" type="text">
+                </div>
+            </header>
+
+            <div class="row">
+                <div class="db-row">
+                    <div class="content">
+                        <div class="inner-content">
+
+                            {% block content %}{% endblock %}
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="inner-bar">
+                            <div class="bar-title">Навигация</div>
+                            <div class="bar-item-list">
+                                <a href="http://localhost:8080" class="bar-item">Главная</a>
+                                <a href="http://localhost:8080/articls" class="bar-item">Статьи</a>
+                                <a href="http://localhost:8080/categories" class="bar-item">Категории</a>
+                                <a href="http://localhost:8080/about-us" class="bar-item">О нас</a>
+                                <a href="http://localhost:8080/contacts" class="bar-item">Наши контакты</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+            
+            </footer>
+
+        </div>
+
+    </body>
+</html>

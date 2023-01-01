@@ -1,0 +1,111 @@
+body {
+    background-color: rgb(168, 168, 168);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.header {
+    background-color: black;
+    width: 80%;
+    padding: 20px;
+}
+
+.header .title {
+    color: white;
+    font-size: 40px;
+    display: inline-block;
+    margin-left: 25px;
+    font-weight: bold;
+}
+.header input {
+    color: black;
+    font-size: 25px;
+    float: right;
+    padding: 5px;
+    width: 45%;
+}
+.header button {
+    color: black;
+    font-size: 25px;
+    float: right;
+    padding: 5px;
+    width: 6%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+.db-row {
+    display: flex;
+    justify-content: center;
+    width: 82%;
+}
+
+.content {
+    float: right;
+    width: 70%;
+    
+}
+
+.inner-content {
+    background-color: white;
+    margin-right: 15px;
+
+    padding: 20px;
+}
+
+.bar {
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+
+.inner-bar {
+    position: sticky;
+    top: 15px;
+
+    background-color: white;
+    padding: 20px;
+}
+
+
+.bar-title {
+    text-align: center;
+    font-size: 32px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom-color: black;
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+}
+
+.bar-item-list {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom-color: black;
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+}
+
+.bar-item {
+    transition: 0.2s;
+    display: block;
+
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    line-height: 35px;
+}
+.bar-item:hover {
+    transition: 0.2s;
+    font-size: 32px;
+}

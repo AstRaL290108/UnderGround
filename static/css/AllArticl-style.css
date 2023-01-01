@@ -1,0 +1,46 @@
+.main-title {
+    font-size: 32px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom-color: black;
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+}
+
+.articl {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.articl-title {
+    transition: 0.2s;
+    display: block;
+    width: 80%;
+
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+.articl-title:hover {
+    transition: 0.2s;
+    font-size: 35px; 
+    text-decoration: underline;
+}
+
+.articl-description {
+    display: inline-block;
+    font-size: 23px;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+}
+
+.articl-PublicTime {
+    display: block;
+    font-size: 26px;
+    text-align: right;
+    float: right;
+}

@@ -1,0 +1,6 @@
+#Шаблон добавления статей
+<div class="articl">
+    <a class="articl-title">Топ 3 способа приготовить пельмени</a>
+    <div class="articl-description">В данной статье я расскажу вам о трёх способах приготовить пельмени. Я уверен вы удивитесь!</div>
+    <div class="articl-PublicTime">01.01.2023</div>
+</div>
