@@ -1,0 +1,135 @@
+@media screen and (max-width: 1250px) {
+    .row {
+        width: 83%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .row {
+        width: 84%;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    header input, header button{
+        position: relative;
+        right: 10000px;
+    }
+
+    .content {
+        display: block;
+        float: none;
+        width: 300%;  
+    }
+    .inner-content {margin-right: 0px;}
+    .bar {
+        float: right;
+        height: 100vh;
+        width: 60vw;
+
+        position: fixed;
+    }
+    .row {
+        justify-content: flex-start;
+        width: 84.8%;
+    }
+
+
+
+
+
+
+    .unshow {
+        position: relative;
+        left: -10000px;
+        width: 0%;
+    }
+    .container {
+        left: 0px;
+
+        float: right;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    .change .bar1 {-webkit-transform: rotate(-45deg) translate(-9px, 6px) ;transform: rotate(-45deg) translate(-9px, 6px) ;}
+    .change .bar2 {opacity: 0;} 
+    .change .bar3 {-webkit-transform: rotate(45deg) translate(-8px, -8px) ;transform: rotate(45deg) translate(-8px, -8px) ;}
+}
+
+
+@media screen and (max-width: 800px) {
+    body::-webkit-scrollbar {width: 0;}
+
+    #wrapper {
+        display: block;
+    }
+
+    .row {width: 96.8%;}
+    header {display: block;width: 89%;}
+
+    header input, header button{
+        position: relative;
+        right: 10000px
+    }
+
+    .row {justify-content: flex-end;}
+
+    .content {float:right;width: 100%;}
+    .inner-content {margin-right: 0;}
+
+    .bar {
+        transition: 1s;
+        height: 100vh;
+        width: 60vw;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .inner-bar {
+        position: static;
+        height: 100%;
+
+        background-color: rgb(219, 219, 219);
+        padding-top: 25px;
+
+        border-right-color: rgb(173, 173, 173);
+        border-right-width: 4px;
+        border-right-style: solid;
+    }
+    .bar-item-list {border: none;}
+
+    .unshow {
+        transition: 1.5s;
+        position: absolute;
+        left: -500px;
+    }
+    .container {
+        left: 0px;
+
+        float: right;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    .change .bar1 {-webkit-transform: rotate(-45deg) translate(-9px, 6px) ;transform: rotate(-45deg) translate(-9px, 6px) ;}
+    .change .bar2 {opacity: 0;} 
+    .change .bar3 {-webkit-transform: rotate(45deg) translate(-8px, -8px) ;transform: rotate(45deg) translate(-8px, -8px) ;}
+}

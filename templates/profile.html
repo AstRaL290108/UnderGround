@@ -1,0 +1,65 @@
+{% extends "pattern/articl-PageType.html" %}
+
+{% block title %}UnderGround{% endblock %}
+
+{% block import %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articl-style.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+.password-title, .login-title {
+    display: inline-block;
+    font-size: 30px;
+    text-decoration: underline;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.password, .login {
+    display: inline-block;
+    font-size: 30px;
+}
+
+.exit {
+    font-size: 20px;
+    padding: 8px;
+    color: red;
+}
+.showpass {
+    font-size: 20px;
+    padding: 8px;
+    
+    float: right;
+    display: inline-block;
+}
+
+.password-conteiner {
+    margin-bottom: 25px;
+}
+
+</style>
+
+
+
+<div class="main-title">Манушин Сергей</div>
+
+
+<div class="login-conteiner">
+    <div class="login-title">Ваш логин: </div>
+    <input disabled class="login">
+</div>
+
+<div class="password-conteiner">
+    <div class="password-title">Ваш пароль: </div>
+    <input type="password" disabled class="password">
+</div>
+
+
+<button class="exit" onclick="ExitForAccount();">Выйти из аккаунта</button><button class="showpass" onclick="ShowPassword();">Показать пароль</button>
+{% endblock %}

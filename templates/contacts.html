@@ -1,11 +1,15 @@
 {% extends "pattern/articl-PageType.html" %}
 
-{% block title %}UnderGround{% endblock %}
+{% block title %}Наши контакты{% endblock %}
 
 {% block import %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/articl-style.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="main-title">Последние новости</div>
+
+<div class="main-title">Наши контакты</div>
+
+<div id="data">{{ data[0] }}</div>
+
 {% endblock %}

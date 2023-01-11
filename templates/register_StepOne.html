@@ -1,20 +1,15 @@
-#Шаблон добавления статей
-<div class="articl">
-    <a class="articl-title">Топ 3 способа приготовить пельмени</a>
-    <div class="articl-description">В данной статье я расскажу вам о трёх способах приготовить пельмени. Я уверен вы удивитесь!</div>
-    <div class="articl-PublicTime">01.01.2023</div>
-</div>
+{% extends "pattern/register-PageType.html" %}
 
+{% block title %}Регистрация{% endblock %}
 
-#Шаблон добавления комментария к статье
-<div class="comment">
-    <div class="com-name"></div>
-    <div class="com-text"></div>
-</div>
+{% block import %}
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}
 
 
 
-#Шаблон страниц регистрации
+{% block content %}
+
 <div class="title">Регистрация</div>
     <div class="description">Введите имя, фамилию, электронную почту(логин) и два раза напишите пароль.</div>
 
@@ -27,5 +22,7 @@
 
         <input type="password" class="input-password" placeholder="Введите пароль">
         <input type="password" class="input-db_password" placeholder="Повторите пароль">
-        <button>Продолжить</button>
+        <button onclick="AddMainData();">Продолжить</button>
     </div>
+
+{% endblock %}

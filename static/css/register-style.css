@@ -1,0 +1,80 @@
+input {
+    border: none;
+}
+button {
+    transition: 0.5s;
+    border: none;
+}
+button:hover {
+    transition: 0.5s;
+    background-color: rgb(107, 107, 107);
+}
+button:active {
+    transition: 0s;
+    background-color: rgb(255, 255, 255);
+}
+
+body {
+    background-color: rgb(95, 95, 95);
+    overflow-y: hidden;
+}
+
+#wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background-color: rgb(218, 218, 218);
+    padding: 20px;
+    width: 40vw;
+}
+
+.title {
+    font-size: 50px;
+    text-align: center;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: black;
+}
+
+.description {
+    text-align: center;
+    font-size: 28px;
+}
+
+.error {
+    color: red;
+    font-size: 25px;
+    text-align: center;
+}
+
+#inputs {
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+}
+#inputs input {
+    margin: 10px;
+    padding: 5px;
+
+    width: 70%;
+    height: auto;
+
+    font-size: 25px;
+    text-align: center;
+}
+#inputs button {
+    font-size: 30px;
+    
+    margin-top: 15px;
+    padding: 5px;
+}

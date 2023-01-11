@@ -1,55 +1,64 @@
 body {
     background-color: rgb(168, 168, 168);
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {width: 0;}
+
+#wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    width: 100vw;
+
+
+    flex-flow: column wrap;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.header {
     background-color: black;
     width: 80%;
     padding: 20px;
 }
 
-.header .title {
+header .title {
     color: white;
     font-size: 40px;
     display: inline-block;
     margin-left: 25px;
     font-weight: bold;
 }
-.header input {
+header input {
     color: black;
     font-size: 25px;
     float: right;
     padding: 5px;
     width: 45%;
 }
-.header button {
+header button {
     color: black;
     font-size: 25px;
     float: right;
     padding: 5px;
-    width: 6%;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
+
+.container {
+    position: relative;
+    left: 1000px;
+    display: inline-block;
 }
-.db-row {
-    display: flex;
-    justify-content: center;
+
+
+.row {
+    padding: 0;
+    margin-top: 15px;
     width: 82%;
 }
 
 .content {
-    float: right;
-    width: 70%;
-    
+    float: left;
+    width: 70%; 
 }
 
 .inner-content {
@@ -108,4 +117,23 @@ header {
 .bar-item:hover {
     transition: 0.2s;
     font-size: 32px;
+}
+
+
+
+
+input {
+    border: none;
+}
+button {
+    transition: 0.5s;
+    border: none;
+}
+button:hover {
+    transition: 0.5s;
+    background-color: rgb(107, 107, 107);
+}
+button:active {
+    transition: 0s;
+    background-color: rgb(255, 255, 255);
 }

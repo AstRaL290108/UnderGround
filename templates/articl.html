@@ -1,0 +1,47 @@
+{% extends "pattern/articl-PageType.html" %}
+
+{% block title %}{{ data[0] }}{% endblock %}
+
+{% block import %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/articl-style.css') }}">
+<script src="{{ url_for('static', filename='js/articl-content.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div id="text_content">{{ data[1] }}</div>
+{% endblock %}
+
+
+{% block comments %}
+
+
+<style>
+.comments {
+    background-color: rgb(141, 141, 141);
+    padding: 15px;
+    
+    margin-right: 15px;
+    margin-top: 15px;
+}
+@media screen and (max-width: 530px), (max-width: 960px) {
+    .comments {
+        margin-right: 0;
+    }
+}
+</style>
+
+
+
+<div class="com-title">Комментарии</div>
+
+<div class="all-comment">
+    
+</div>
+
+
+<div class="make-comment">
+    <input placeholder="Введите текст вашего комментария">
+    <button onclick="AddComment();">Отправить</button>
+</div>
+
+{% endblock %}

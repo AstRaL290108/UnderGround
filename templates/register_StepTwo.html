@@ -1,0 +1,23 @@
+{% extends "pattern/register-PageType.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block import %}
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="title">Регистрация</div>
+    <div class="description">На электронную почту, которую вы указали был отправлен код подтверждения. Введите его в соответствуещее поле.</div>
+
+    <div class="error"></div>
+                
+    <div id="inputs">
+        <input type="text" class="input-key" placeholder="Введите код из письма">
+        <button onclick="CheckLitter();">Продолжить</button>
+    </div>
+
+{% endblock %}

@@ -4,12 +4,13 @@
 
 {% block import %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/AllArticl-style.css') }}">
+<script src="{{ url_for('static', filename='js/all_articls.js') }}"></script>
 {% endblock %}
 
 {% block content %}
 
 <div class="main-title">Все статьи</div>
 
-<div id="data">{{ data[0] }}</div>
+<div id="data">{{ data }}</div>
 
 {% endblock %}
