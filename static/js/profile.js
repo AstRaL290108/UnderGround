@@ -17,25 +17,28 @@ function ExitForAccount() {
 }
 
 function CheckCookie() {
-    cook = document.cookie;
-
-    if (cook === "") {
+    var cook = readCookie("login");
+    
+    if (String(cook) != "undefined") {
+        GetCookie();
+    }else if (String(cook) === "undefined") {
         var content = document.querySelector(".inner-content");
         content.innerHTML = '<p>У вас нет аккаунта. <a href="http://localhost:8080/account/login">Войдите</a> в свой аккаунт или <a href="http://localhost:8080/account/register/1">зарегистрируйтесь</a> на сайте.</p>'
-    }else {
-        GetCookie();
     }
 }
 
 function GetCookie() {
+    var name = readCookie("username");
     var login = readCookie("login");
     var password = readCookie("password");
     
     var input1 = document.querySelector(".password");
     var input2 = document.querySelector(".login");
+    var input3 = document.querySelector(".main-title");
 
     input1.value = password;
     input2.value = login;
+    input3.textContent = name;
 }
 
 

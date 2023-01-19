@@ -114,3 +114,16 @@ p {font-size: 28px;}
     transition: 0s;
     background-color: rgb(255, 255, 255);
 }
+
+
+@media screen and (max-width: 800px) {
+    .main-title {font-size: 22px;}
+    .sub-title {font-size: 20px;}
+    p {font-size: 18px;}
+    .code {font-size: 15px;}
+    .com-title {font-size: 20px;}
+    .com-name {font-size: 18px;}
+    .com-text {font-size: 12px;}
+    .make-comment input {font-size: 15px;}
+    .make-comment button {font-size: 15px;}
+}

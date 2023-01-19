@@ -1,13 +1,14 @@
 #Server data
-port = 8080
+port = 3306
 
 
 #Data base data
-user = "root"
-password = "root"
-database = "undeground_db"
+user = "AstRaL290108"
+password = "Manychin@Sergey-290108"
+database = "AstRaL290108$underground_db"
+host = "AstRaL290108.mysql.pythonanywhere-services.com"
 
 
 #Mail data
-login = "good.astral@yandex.ru"
-mail_password = "290108290108290108290108"
+login = "underground.login@yandex.ru"
+mail_password = "under@290108"

@@ -4,15 +4,16 @@ import random
 
 
 def SendLitter(mail, key):
-    smtpObj = smtplib.SMTP('smtp.yandex.ru', 587)
-    smtpObj.starttls()
+    pass
+    # smtpObj = smtplib.SMTP('smtp.yandex.ru', 587)
+    # smtpObj.starttls()
     
-    smtpObj.login(config.login, config.mail_password)
-    smtpObj.sendmail(to_addrs=mail, msg=str(key), from_addr="good.astral@yandex.ru")
+    # smtpObj.login(config.login, config.mail_password)
+    # smtpObj.sendmail(to_addrs=mail, msg=str(key), from_addr=config.login)
         
 
 def GetAllArticls(db, cur): 
-    req = "SELECT title, description, public_time, url FROM `articls`"
+    req = "SELECT title, description, preview, url FROM `articls`"
     cur.execute(req)
     db.commit()
     
@@ -65,6 +66,7 @@ def AddMainInfo(db, cur, data_json):
     db.commit()
     
     SendLitter(data_json['login'], key)
+    print(data_json['login'], key)
     
     
 def check_litter(db, cur, data):
@@ -110,17 +112,14 @@ def CheckUSERNAME(db, cur, input_usename):
     db.commit()
     
     all_username = cur.fetchall()
-    print(all_username)
     if str(all_username) == "()":
         return None
-    else:
-        all_username = all_username[0]
-        
+    else: 
         for i in all_username:
-            if i == input_usename:
+            if i[0] == input_usename:
                 return "false"
-            elif i != input_usename:
-                return None
+        
+    return None
             
             
             
@@ -130,17 +129,14 @@ def CheckLOGIN(db, cur, input_usename):
     db.commit()
     
     all_username = cur.fetchall()
-    print(all_username)
     if str(all_username) == "()":
         return None
-    else:
-        all_username = all_username[0]
-        
+    else: 
         for i in all_username:
-            if i == input_usename:
+            if i[0] == input_usename:
                 return "false"
-            elif i != input_usename:
-                return None
+        
+    return None
             
             
             
@@ -170,3 +166,11 @@ def login(db, cur, data):
         
         resp = cur.fetchmany()
         return resp[0]
+    
+    
+def AdminGetAllUser(db, cur):
+    req = "SELECT id, username, login, password FROM `users`"
+    cur.execute(req)
+    db.commit()
+    
+    return FormtAllArticls(cur.fetchall())

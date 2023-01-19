@@ -6,7 +6,6 @@ from flask import render_template, url_for
 from flask_cors import CORS
 
 import pymysql
-import os
 
 import config
 import function
@@ -26,25 +25,27 @@ def index():
 
 @app.route("/articls")
 def all_articls():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
-    
+
     articls = function.GetAllArticls(db, cur)
     articls = function.FormtAllArticls(articls)
-    
+
     cur.close()
     db.close()
-    
+
     return render_template("all_articls.html", data=articls)
 
 
 @app.route("/articls/<string:url>")
-def articl(url):   
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+def articl(url):
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root", host="localhost")
     cur = db.cursor()
-    
+
     articl = function.GetArticl(db, cur, url)
-    
+
     cur.close()
     db.close()
 
@@ -75,14 +76,14 @@ def register_one(step):
         return render_template("register_StepOne.html")
     elif step == 2:
         return render_template("register_StepTwo.html")
-    
-    
+
+
 @app.route("/account/register/<int:step>/<string:login>")
 def register_two(step, login):
     if step == 2:
         return render_template("register_StepTwo.html")
-    
-    
+
+
 #Вход
 @app.route("/account/login")
 def ShowLoginPage():
@@ -94,44 +95,46 @@ def ShowLoginPage():
 #Код сервера
 @app.route("/server/get-comment", methods=['POST'])
 def get_comment():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
-    
+
     data = request.get_json()
-    
+
     comments = function.GetComments(db, cur, data["articl-title"])
     comments = function.FormtAllArticls(comments)
-    
+
     otv = make_response(comments)
-    
+
     cur.close()
     db.close()
-    
+
     return otv
 
 
 @app.route("/server/add-comment", methods=['POST'])
 def add_comment():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
-    
+
     data = request.get_json()
-    
+
     function.AddComment(db, cur, data)
-    
+
     cur.close()
     db.close()
-    
+
     return "nice"
 
 
 @app.route("/server/add-main-info", methods=['POST'])
 def add_main_info():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
 
     data = request.get_json()
-    print(data)
     res1 = function.CheckUSERNAME(db, cur, data['username'])
     if res1 is None:
         res2 = function.CheckLOGIN(db, cur, data['login'])
@@ -139,7 +142,7 @@ def add_main_info():
             function.AddMainInfo(db, cur, data)
             cur.close()
             db.close()
-            
+
             return f"http://localhost:8080/account/register/2/{data['login']}"
         else:
             return "412"#Логин уже существует
@@ -149,13 +152,14 @@ def add_main_info():
 
 @app.route("/server/chek-litter", methods=['POST'])
 def ChekLitter():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
-    
+
     data = request.get_json()
 
     res = function.check_litter(db, cur, data)
-    
+
     if res == "yes":
         user_data = function.get_user(db, cur, data['login'])
         body_ = {
@@ -163,59 +167,66 @@ def ChekLitter():
             'login': user_data[0][1],
             'password': user_data[0][2]
         }
-        
+
         body_ = jsonify(body_)
     elif res == "NOT!!!":
         body_ = {
             'username': '413',
         }
-        
+
         body_ = jsonify(body_)
-        
-    
+
+
     cur.close()
     db.close()
-    
+
     print(body_)
     return make_response(body_)
 
 
 @app.route("/server/login", methods=['POST'])
 def LOGIN():
-    db = pymysql.connect(database=config.database, user=config.user, password=config.password)
+    #db = pymysql.connect(database=config.database, user=config.user, password=config.password, host=config.host, port=3306)
+    db = pymysql.connect(database="undeground_db", user="root", password="root")
     cur = db.cursor()
-    
+
     data = request.get_json()
 
     resp = function.login(db, cur, data)
     print(resp)
-    
+
     cur.close()
     db.close()
-    
+
     if resp[0] != "e":
         body_ = {
             'username': resp[1],
             'login': resp[0],
             'password': data['password']
         }
-            
+
         body_ = jsonify(body_)
         return make_response(body_)
     else:
         body_ = {
             'username': resp
         }
-            
+
         body_ = jsonify(body_)
         return make_response(body_)
 
 
 
 #Код админки
+@app.route("/admin")
+def send_admin():
+    pass
 
 
+@app.route("admin/articl/add")
+def admin_articl_add():
+    pass
 
 
-
-app.run(port=os.environ['PORT'])
+if __name__ == "__main__":
+    app.run(port=8080)

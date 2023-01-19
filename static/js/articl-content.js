@@ -45,9 +45,9 @@ function GetComments () {
 
 
 function CheckCoolie() {
-    var cookie = document.cookie;
+    var cookie = String(readCookie("username"));
 
-    if (cookie == "") {
+    if (cookie == "undefined") {
         var make_com = document.querySelector(".make-comment");
         make_com.parentNode.removeChild(make_com);
 
@@ -68,36 +68,62 @@ function AddComment() {
     var cookie = SearchCookie(cookie);
 
     var username = null;
+    var input_comment = document.querySelector(".make-comment input").value;
 
-    for (i=0;i < cookie.length; i +=1) {
-        item = cookie[i];
-        item = item.split("=")
-        if (item[0] === "username") {
-            username = item[1]
+    if (input_comment === "") {
+        document.querySelector(".error").textContent = "Комментарий не должен быть пустым!"
+    }else {
+        document.querySelector(".error").textContent = ""
+        var username = readCookie("username");
+
+        var req = new XMLHttpRequest();
+        req.open("POST", "http://localhost:8080/server/add-comment", true);
+        req.responseType = "text";
+        req.setRequestHeader("Content-Type", "application/json");
+
+        var data = {
+            'username': '',
+            'text': '',
+            'articl-title': ''
         }
+        data['username'] = username;
+        data['text'] = input_comment;
+        data['articl-title'] = document.querySelector("title").textContent;
+        var body = JSON.stringify(data);
+
+        document.querySelector(".make-comment input").value = ""
+
+        req.onload = function () {
+            var all_comment = document.querySelector(".all-comment");
+            all_comment.innerHTML += '<div class="comment"><div class="com-name">' + data['username'] + '</div><div class="com-text">' + data['text'] + '</div></div>';
+        }
+
+        req.send(body);
     }
+}
 
-    var req = new XMLHttpRequest();
-    req.open("POST", "http://localhost:8080/server/add-comment", true);
-    req.responseType = "text";
-    req.setRequestHeader("Content-Type", "application/json");
 
-    var data = {
-        'username': '',
-        'text': '',
-        'articl-title': ''
-    }
-    data['username'] = username;
-    data['text'] = document.querySelector(".make-comment input").value;
-    data['articl-title'] = document.querySelector("title").textContent;
-    var body = JSON.stringify(data);
 
-    document.querySelector(".make-comment input").value = ""
+function readCookie(name) {
 
-    req.onload = function () {
-        var all_comment = document.querySelector(".all-comment");
-        all_comment.innerHTML += '<div class="comment"><div class="com-name">' + data['username'] + '</div><div class="com-text">' + data['text'] + '</div></div>';
-    }
-
-    req.send(body);
+	var name_cook = name+"=";
+	var spl = document.cookie.split(";");
+	
+	for(var i=0; i<spl.length; i++) {
+	
+		var c = spl[i];
+		
+		while(c.charAt(0) == " ") {
+		
+			c = c.substring(1, c.length);
+			
+		}
+		
+		if(c.indexOf(name_cook) == 0) {
+			
+			return c.substring(name_cook.length, c.length);
+			
+		}
+		
+	}
 }

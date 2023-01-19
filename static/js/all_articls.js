@@ -13,6 +13,6 @@ function ShowData() {
     var item;
     for (i=0; i < data.length; i += 1) {
         item = data[i];
-        content.innerHTML += '<div class="articl"><a href="articls/' + item[3] + '" class="articl-title">' + item[0] + '</a><div class="articl-description">' + item[1] + '</div><div class="articl-PublicTime">' + item[2] + '</div> </div>'
+        content.innerHTML += '<div class="articl"><img src="static/img/'+item[2]+'" class="articl-img"><div class="articl-text"><a href="http://localhost:8080/articls/'+item[3]+'" class="articl-title">'+item[0]+'</a><div class="articl-description">'+item[1]+'</div></div></div>'
     }
 }

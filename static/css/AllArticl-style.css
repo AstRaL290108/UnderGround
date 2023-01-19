@@ -12,6 +12,13 @@
 .articl {
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: rgb(165, 165, 165);
+}
+
+.articl-text {
+    display: inline-block;
+    position: fixed;
+    margin-left: 15px;
 }
 
 .articl-title {
@@ -26,7 +33,6 @@
 }
 .articl-title:hover {
     transition: 0.2s;
-    font-size: 35px; 
     text-decoration: underline;
 }
 
@@ -38,9 +44,17 @@
     padding: 0;
 }
 
-.articl-PublicTime {
-    display: block;
-    font-size: 26px;
-    text-align: right;
-    float: right;
+.articl-img {
+    display: inline-block;
+    width: 25%;
+    height: auto;
+
+    margin: 5px;
+    margin-bottom: 2px;
+}
+
+@media screen and (max-width: 00px)  {
+    .articl-title {font-size: 20;}
+    .articl-title:hover {font-size: 25;}
+    .articl-description {font-size: 13;}
 }

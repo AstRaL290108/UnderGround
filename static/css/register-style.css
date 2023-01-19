@@ -78,3 +78,26 @@ body {
     margin-top: 15px;
     padding: 5px;
 }
+
+
+@media screen and (max-width: 1200px) {
+    #wrapper {
+        display: block;
+        overflow: hidden;
+    }
+
+    .content {
+        width: 90vw;
+        margin-top: 15px;
+    }
+
+    #inputs input {  
+        font-size: 15px;
+    }
+    #inputs button {
+        font-size: 20px;
+    }
+
+    .title {font-size: 40px;}
+    .description {font-size: 18px;}
+}

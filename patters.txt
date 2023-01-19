@@ -29,3 +29,12 @@
         <input type="password" class="input-db_password" placeholder="Повторите пароль">
         <button>Продолжить</button>
     </div>
+</div>
+
+
+
+
+#Шаблон для таблици пользователей
+<tr>
+    <td>1</td><td>Манушин Сергей</td><td>good.astral@yandex.ru</td><td>astral@290108</td><td><button>Забанить</button><button>Разбанить</button><button>Удалить</button></td>
+</tr>

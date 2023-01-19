@@ -23,10 +23,16 @@
     margin-right: 15px;
     margin-top: 15px;
 }
+.error {
+    color: red;
+    font-size: 30px;
+    text-align: center;
+}
 @media screen and (max-width: 530px), (max-width: 960px) {
     .comments {
         margin-right: 0;
     }
+    .error {font-size: 20px;}
 }
 </style>
 
@@ -42,6 +48,8 @@
 <div class="make-comment">
     <input placeholder="Введите текст вашего комментария">
     <button onclick="AddComment();">Отправить</button>
+
+    <div class="error"></div>
 </div>
 
 {% endblock %}
