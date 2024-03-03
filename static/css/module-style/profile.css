@@ -1,0 +1,59 @@
+.user {
+    display: flex;
+}
+.user img {
+    width: 40%;
+    height: auto;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: column;
+}
+.text-area .name {
+    text-align: center;
+    font-size: 40px;
+    
+    margin-left: 10px;
+    color: white;
+}
+.text-area .about {
+    background-color: rgb(44, 44, 44);
+    font-size: 25px;
+    
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 15px;
+    color: white;
+}
+
+.input-data {
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    margin: 10px 0px;
+
+    display: flex;
+    justify-content: space-between;
+}
+button.exit {
+    transition: 0.3s;
+    font-size: 35px;
+    color: white;
+
+    background-color: rgb(39, 39, 39);
+    border: 5px solid black;
+    border-radius: 5px;
+}
+button.exit:hover {
+    transition: 0.3s;
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}

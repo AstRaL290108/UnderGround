@@ -1,0 +1,67 @@
+.articl {
+    display: flex;
+    margin-bottom: 15px;
+}
+.articl .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.articl img {
+    width: 40%;
+    height: 100%;
+
+    margin-right: 10px;
+}
+
+.articl .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.articl .title .text {
+    font-size: 35px;
+    color: white;
+
+    text-decoration: underline;
+    cursor: pointer;
+}
+.articl .title .public-time {
+    font-size: 20px;
+    color: white;
+}
+
+.articl .description {
+    font-size: 25px;
+    color: white;
+
+    margin-top: 10px;
+}
+
+.articl .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+.articl .item {
+    display: flex;
+    align-items: center;
+}
+.articl .item img {
+    width: 40px;
+    filter: invert(1);
+}
+.articl .item .num  {
+    font-size: 25px;
+    color: white;
+}
+
+.dislikes {
+    transform: rotateZ(180deg) scaleX(-1);
+}

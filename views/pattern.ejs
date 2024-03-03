@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+
+    <%- include("./main-import.ejs") %>
+    
+    <!-- JavaScript Import -->
+    <script src="/javascript/slider-script.js"></script>
+    
+    <title>UnderGround</title>
+</head>
+<body>
+    <div id="wrapper">
+
+        <%- include("./elements/header.ejs") %>
+
+        <div id="main">
+            <%- include(`./${page}.ejs`) %>
+            <%- include(`./elements/site-bar.ejs`) %>
+        </div>
+
+    </div>
+</body>
+</html>

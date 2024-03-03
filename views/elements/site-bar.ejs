@@ -1,0 +1,32 @@
+<div class="site-bar">
+
+    <div class="bar-block navigation">
+        <div class="text">НАВИГАЦИЯ</div>
+        <div class="link-list">
+            <a href="../../../../">Главная</a>
+            <a href="../../../../offer">Предложка</a>
+            <a href="../../../../contacts">Контакты</a>
+            <a href="../../../../about">О проекте</a>
+        </div>
+    </div>
+
+    <div class="bar-block categories">
+        <a href="../../../../category" class="block-title">КАТЕГОРИИ</a>
+
+        <% for(item of category) {%>
+            <div class="text" onclick="toggleMenu('id-<%= item.id %>')"><%= item.title %></div>
+            <div class="link-list id-<%= item.id %>">
+                <% for(sub_item of item.sub_category) {%>
+                    <a href="../../../../category/<%= item.url %>/<%= sub_item.url %>">
+                        <%= sub_item.title %>(<%= sub_item.articls %>)
+                    </a>
+                <% } %>
+                <a href="../../../../category/<%= item.url %>">
+                    Все(<%= item.sub_category_amount %>)
+                </a>
+            </div>
+        <% } %>
+
+    </div>
+
+</div>

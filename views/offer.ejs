@@ -1,0 +1,78 @@
+<div class="content">
+    <div class="block">
+        <div class="main-title">Предложка</div>
+        <p>Если у вас есть предложения для этого сайта или вы нашли ошибку, то вы можете написать сюда. Ваше предложение будет рассотренно!</p>
+    
+        <div class="input">
+            <input type="text" placeholder="Введите текст...">
+            <div onclick="sendOffer();">Отправить</div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+function sendOffer() {
+    let text = document.querySelector(".input input").value;
+    if (!text) return;
+    document.querySelector(".input input").value = "";
+
+    let today = new Date;
+
+    let day = today.getDay();
+    if (day < 10) day = `0${day}`
+    let month = today.getMonth() + 1;
+    if (month < 10) month = `0${today.getMonth() + 1}`;
+    let date = `${day}.${month}.${today.getFullYear()}`;
+
+    var req = new XMLHttpRequest();
+    req.open("POST", "../../../../server/add-offer");
+    req.setRequestHeader("Content-Type", "application/json");
+
+    let data = `{"text": "${text}", "date": "${date}"}`;
+    req.send(data);
+    alert("Ваше сообщение отправлено на рассмотрение!");
+}
+
+</script>
+
+<style>
+
+.input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    background-color: rgb(20, 20, 20);
+    border: 4px black solid;
+    border-radius: 5px;
+}
+
+.input input {
+    width: 100%;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    color: white;
+    font-size: 30px;
+
+    padding: 10px;
+}
+
+.input div {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    font-size: 30px;
+
+    border-left: black solid 4px;
+}
+.input div:hover {
+    color: black;
+    background-color: rgb(131, 131, 131);
+    cursor: pointer;
+}
+
+</style>

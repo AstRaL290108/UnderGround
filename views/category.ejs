@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/module-style/articls.css">
+
+<div class="content">
+    <div class="block">
+        <div class="main-title">Категория "<%= mainCategory.title %>"</div>
+
+        <% for (item of data) { %>
+            <div class="articl">
+                <img src="/src/category-previews/<%= item.preview %>" alt="">
+                <div class="text">
+                    <div class="top">
+                        <div class="title">
+                            <a href="../../../../category/<%= mainCategory.url %>/<%= item.url %>" class="text"><%= item.title %></a>
+                            <div class="public-time"><%= item.articls %></div>
+                        </div>
+                        <div class="description"><%= item.description %></div>
+                    </div>
+                    <div class="bottom"></div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

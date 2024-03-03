@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css/module-style/articl.css">
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/articl.js"></script>
+<script src="/javascript/comments.js"></script>
+
+<div class="content">
+    <div class="block articl">
+        <div class="main-title"><%= title %></div>
+        
+        <%- text %>
+    </div>
+
+    <div class="block feedback">
+        <div class="main-title">Оценки</div>
+        <% if (user.isRegister) { %>
+            <p>Здесь вы можете оценить статью. К своей оценке обязательно напишите коментарий!</p>
+        <% } %> 
+        
+        <% if (!user.isRegister) { %>
+            <p>Чтобы оценить данную статью, вам нужно <a href="">зарегистрироваться</a>!</p>
+        <% } %>
+
+        <div class="items">
+            <div class="item">
+                <img class="likes<% if(grade == "likes") { %> active <% } %>" src="/src/icons/likes.png" alt="" <% if (user.isRegister && !grade) { %>onclick="sendGrade('likes')"<% } %>>
+                <div class="number"><%= likes %></div>
+            </div>
+
+            <div class="item">
+                <img class="dislikes<% if(grade == "dislikes") { %> active <% } %>" src="/src/icons/likes.png" alt="" <% if (user.isRegister && !grade) { %>onclick="sendGrade('dislikes')"<% } %>>
+                <div class="number"><%= dislikes %></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block comment">
+        <div class="main-title">Комментарии</div>
+
+        <div class="messages">
+
+            <div class="null">Здесь пока ничего нет!</div>
+
+        </div>
+
+        <div class="writing">
+            <% if (user.isRegister) { %>
+                <div class="input">
+                    <input class="message-area" type="text" placeholder="Введите текст...">
+                    <img onclick="messendger.sendMessage();" src="/src/icons/send.png" alt="">
+                </div>
+            <% } %>
+
+            <% if (!user.isRegister) { %>
+                <p style="text-align: center;">
+                    Чтобы оставлять коментарии вам нужно <a href="">зарегистрироваться</a>!
+                </p>
+            <% } %>
+        </div>
+    </div>
+</div>

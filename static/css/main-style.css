@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "main"; 
+    src: url("../src/fonts/main.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+@font-face {
+    font-family: "title"; 
+    src: url("../src/fonts/title.otf") format("opentype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+* {
+    font-family: "main";
+    font-weight: bolder;
+}
+
+body {
+    background-color: rgb(25, 25, 25);
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {width: 0px;}
+
+/* Styling */
+#main {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 120px;
+}
+
+.content {
+    width: 50vw;
+    min-height: 500px;
+}

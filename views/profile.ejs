@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/css/module-style/profile.css">
+<link rel="stylesheet" href="/css/module-style/articls.css">
+<script src="/javascript/profile.js"></script> 
+
+<div class="content">
+    <div class="block">
+        <div class="main-title">Профиль</div>
+        <div class="user">
+            <img src="/src/users-previews/<%= data.avatar %>" alt="">
+            <div class="text-area">
+                <div class="name"><%= data.name %></div>
+                <div class="about"><%= data.about %></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="main-title">Понравившиеся записи</div>
+        <% for (articl of likeArticls)  { %>
+            <%- include("elements/articl.ejs", articl) %>
+        <% } %>
+    </div>
+
+    <% if (user.isRegister && user.id == data.id)  { %>
+        <div class="block">
+            <div class="main-title">Изменить внешние данные</div>
+            
+            <div class="inputs">
+                <div class="input">
+                    <input maxlength="50" class="name" type="text" placeholder="Изменить имя">
+                    <div onclick="resetData('name');">Применить</div>
+                </div>
+                <div class="input">
+                    <input maxlength="100" class="about" type="text" placeholder="Изменить описание профиля">
+                    <div onclick="resetData('about');">Применить</div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <% if (user.isRegister && user.id == data.id)  { %>
+        <div class="block">
+            <div class="main-title">Данные для входа</div>
+
+            <div class="input-data">
+                <div class="title">Логин</div>
+                <div class="text"><%= data.login %></div>
+            </div>
+
+            <div class="input-data">
+                <div class="title">Пароль</div>
+                <div class="text"><%= data.password %></div>
+            </div>
+
+            <button onclick="exit();" class="exit">Выйти</button>
+        </div>
+    <% } %>
+</div>
+
+
+<!-- Input Style -->
+<style>
+.input {
+    display: flex;
+    align-items: center;
+    
+    background-color: rgb(20, 20, 20);
+    border: 4px black solid;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+}
+    
+.input input {
+    width: 100%;
+    
+    background: none;
+    border: none;
+    outline: none;
+    
+    color: white;
+    font-size: 30px;
+    
+    padding: 10px;
+}
+    
+.input div {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    font-size: 30px;
+    
+    border-left: black solid 4px;
+}
+.input div:hover {
+    color: black;
+    background-color: rgb(131, 131, 131);
+    cursor: pointer;
+}
+    
+</style>

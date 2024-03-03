@@ -1,0 +1,9 @@
+{
+	"port": 8080,
+	"database_filename": "database.db",
+
+	"db_user": "root",
+	"db_password": "root",
+	"db_host": "127.0.0.1",
+	"db_database": "underground_db"
+}

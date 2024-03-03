@@ -1,0 +1,35 @@
+.block {
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+
+    padding: 15px;
+    margin-bottom: 15px;
+
+    border: rgb(8, 8, 8) 5px solid;
+}
+
+/* .main-title {
+    font-size: 40px;
+    color: white;
+
+    border-bottom: solid rgb(255, 255, 255) 5px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+} */
+
+.main-title {
+    font-size: 40px;
+    color: white;
+
+    background-color: rgb(17, 17, 17);
+    border-bottom: solid rgb(8, 8, 8) 5px;
+
+    margin: -15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+p {
+    color: white;
+    font-size: 25px;
+}

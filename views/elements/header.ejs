@@ -1,0 +1,25 @@
+<header>
+    <div class="title" onclick="location.href = '../../../../../';">
+        <img src="/favicon.png" alt="">
+        <div class="text">UnderGround</div>
+    </div>
+
+    <div class="avatar" <% if (user.isRegister) { %>onclick='location.href="../../../../users/<%= user.id %>";'<% } %> >
+        <img onclick="mainMenuToggle();" src="/src/users-previews/<%= user.avatar %>" alt="" class="user">
+        <div class="move-list hide">
+            <% if (!user.isRegister) { %>
+                <a href="/account/register">Зарегистрироваться</a>
+                <a href="/account/sing-in">Войти</a>
+            <% } %>
+        </div>
+    </div>
+</header>
+
+<script>
+
+function mainMenuToggle() {
+    let element = document.querySelector(".move-list");
+    element.classList.toggle("hide");
+}
+
+</script>

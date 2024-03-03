@@ -1,0 +1,80 @@
+.site-bar {
+    width: 18vw;
+    height: 500px;
+
+    margin-left: 60px;
+    user-select: none;
+}
+
+
+/* Navigation Style */
+.bar-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 25px;
+}
+.bar-block .text {
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    border: rgb(8, 8, 8) solid 5px;
+
+    font-size: 38px;
+    color: white;
+    padding: 5px;
+
+    width: 100%;
+}
+.bar-block .link-list {
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+    border: rgb(8, 8, 8) solid 5px;
+
+    border-top: none;
+}
+.bar-block .link-list a {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    text-decoration: none;
+
+    color: white;
+    margin: 5px;
+    padding: 5px;
+
+    border: black 2px dotted;
+}
+.bar-block .link-list a:hover {
+    color: black;
+    border: rgb(255, 255, 255) 2px dotted;
+    background-color: rgb(196, 196, 196);
+
+    cursor: pointer;
+}
+
+
+/* Categories Style */
+.categories .block-title {
+    text-align: center;
+    text-decoration: none;
+    
+    background-color: rgb(17, 17, 17);
+    border: rgb(8, 8, 8) solid 5px;
+
+    font-size: 38px;
+    color: white;
+    padding: 5px;
+
+    width: 100%;
+}
+.navigation .text {
+    background-color: rgb(17, 17, 17);
+}
+.categories .text {cursor: pointer; border-top: none;}
+.categories .link-list {
+    display: none;
+}
+.categories .link-list.active {
+    display: block;
+}
